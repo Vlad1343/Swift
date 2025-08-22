@@ -135,11 +135,26 @@
 //print(a + Int(b))
 
 
+//var gameOver = false
+//gameOver.toggle()
+//print(gameOver)
+//var gameStart = true
+//gameStart = !gameStart
+//print(gameStart)
+//
+//
+//let name = "Tom"
+//let age = 36
+//// Swift string interpolation, similar to Python f-string
+//let greeting = "Hello, my name is \(name) and I am \(age) years old."
+//print(greeting)
+//
+//print("5*5 equals \(5*5)")
 
-var gameOver = false
-gameOver.toggle()
-print(gameOver)
-var gameStart = true
-gameStart = !gameStart
-print(gameStart)
+
+
+// Checkpoint 1
+let celsium = 25
+let fahrenheit = (celsium * 9/5) + 32
+print("\(celsium)° Celsium equals \(fahrenheit) Fahrenheit")
 
