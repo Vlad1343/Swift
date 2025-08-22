@@ -109,12 +109,37 @@
 //}
 
 
-let picture = "paris.jpg"
-let actor = "Tom Cruise"
-print(actor.count)
-print(actor.uppercased())
-print(actor.hasPrefix("Tom"))
-print(picture.hasSuffix(".jpg"))
+//let picture = "paris.jpg"
+//let actor = "Tom Cruise"
+//print(actor.count)
+//print(actor.uppercased())
+//print(actor.hasPrefix("Tom"))
+//print(picture.hasSuffix(".jpg"))
+//
+//let num = 350_000
+//print(num.isMultiple(of: 1000))
+//
 
-let num = 350_000
-print(num.isMultiple(of: 1000))
+
+//let num2 = 0.1 + 0.2
+//print(num2)
+
+//import Foundation
+//let num1 = Decimal(0.1)
+//let num2 = Decimal(0.2)
+//let sum = num1 + num2
+//print(sum)
+//
+//let a = 5
+//let b = 7.949348
+//print(a + Int(b))
+
+
+
+var gameOver = false
+gameOver.toggle()
+print(gameOver)
+var gameStart = true
+gameStart = !gameStart
+print(gameStart)
+
