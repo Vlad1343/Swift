@@ -94,16 +94,27 @@
 
 
 
-var a = 50
-var b = 30
-var c = 10
+//var a = 50_00
+//var b = 30
+//var c = 10
+//
+//if a > b {
+//    print("A is larger than B")
+//}
+//else if b > c {
+//    print("B is larger than C")
+//}
+//else {
+//    print("C is largest")
+//}
 
-if a > b {
-    print("A is larger than B")
-}
-else if b > c {
-    print("B is larger than C")
-}
-else {
-    print("C is largest")
-}
+
+let picture = "paris.jpg"
+let actor = "Tom Cruise"
+print(actor.count)
+print(actor.uppercased())
+print(actor.hasPrefix("Tom"))
+print(picture.hasSuffix(".jpg"))
+
+let num = 350_000
+print(num.isMultiple(of: 1000))
