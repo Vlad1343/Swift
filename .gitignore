@@ -1,0 +1,62 @@
+# Swift/Xcode Project .gitignore
+# This complements the global .gitignore_global file
+
+# Xcode user-specific files (already covered globally but listed for clarity)
+xcuserdata/
+*.xcuserstate
+
+# Swift Package Manager
+.build/
+Packages/
+Package.pins
+Package.resolved
+*.xcodeproj
+!L1\ Demo.xcodeproj
+
+# Swift-specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods (if you use it)
+Pods/
+Podfile.lock
+
+# Carthage (if you use it)
+Carthage/Build/
+Carthage/Checkouts/
+
+# fastlane (if you use it)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+fastlane/readme.md
+
+# Code Injection
+iOSInjectionProject/
+
+# Project-specific sensitive files
+# Add any project-specific patterns here
+config/
+configuration/
+*-config.plist
+*-secret.plist
+*-production.plist
+*-staging.plist
+*.mobileprovision
+*.p12
+*.pem
+
+# Temporary files
+*.tmp
+*.temp
+*~.nib
+
+# OS Generated files
+Thumbs.db
+
+# Personal notes for this project
+PROJECT-NOTES.md
+TODO-PERSONAL.md
