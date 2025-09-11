@@ -1,0 +1,51 @@
+
+# ============================
+# Xcode & macOS Git Ignore
+# ============================
+
+# Build products
+build/
+DerivedData/
+
+# User-specific settings
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+
+# Xcode workspace data
+*.xcworkspace/xcuserdata
+*.xcuserstate
+
+# Swift Package Manager
+.build/
+Packages/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Archives and temporary files
+*.ipa
+*.xcarchive
+*.dSYM.zip
+*.dSYM
+
+# Other
+*.swp
+*.lock
