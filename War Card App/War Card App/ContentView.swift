@@ -11,8 +11,8 @@ struct ContentView: View {
     @State var playerCard = "card7" // property wrapper
     @State var computerCard = "card13"
     
-    var playerScore: Int = 0
-    var computerScore: Int = 0
+    @State var playerScore: Int = 0
+    @State var computerScore: Int = 0
     
     
     var body: some View {
@@ -80,15 +80,27 @@ struct ContentView: View {
     
     func dealCards(){
         // Randomize the player's cards
-        playerCard = "card" + String(Int.random(in: 2...14))
+        @State var playerCardValue = Int.random(in: 2...14)
+        playerCard = "card" + String(playerCardValue)
         // Randomize the computer's card
-        computerCard = "card" + String(Int.random(in: 2...14))
+        @State var computerCardValue = Int.random(in: 2...14)
+        computerCard = "card" + String(computerCardValue)
         // Update the screen
+        if playerCardValue > computerCardValue {
+            playerScore += 1
+        }
+        else if computerCardValue > playerCardValue {
+            computerScore += 1
+        }
+        else {
+            print( "Tie!")
+        }
+        }
         
     }
     
     
-}
+
 
 
 
