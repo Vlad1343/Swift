@@ -83,9 +83,27 @@
 
 
 
-func doAdd(_ a: Int, _ b: Int) -> Int {
-    var sum = a + b
-    return sum
+//func doAdd(_ a: Int, _ b: Int) -> Int {
+//    var sum = a + b
+//    return sum
+//}
+//let result = doAdd(10, 20)
+//print("Returned:", result)
+
+
+
+
+
+var a = 50
+var b = 30
+var c = 10
+
+if a > b {
+    print("A is larger than B")
 }
-let result = doAdd(10, 20)
-print("Returned:", result)
+else if b > c {
+    print("B is larger than C")
+}
+else {
+    print("C is largest")
+}
