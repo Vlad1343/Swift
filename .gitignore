@@ -60,3 +60,16 @@ Thumbs.db
 # Personal notes for this project
 PROJECT-NOTES.md
 TODO-PERSONAL.md
+
+# Swift Playgrounds (project-specific)
+# User interface state and workspace data
+*.playground/playground.xcworkspace/xcuserdata/
+*.playground/**/UserInterfaceState.xcuserstate
+# Timeline files (debugging artifacts)
+*.playground/timeline.xctimeline
+*.playground/Pages/*/timeline.xctimeline
+# Playground resources that might contain sensitive test data
+*.playground/Resources/test-data.*
+*.playground/Resources/sample-*
+*.playground/Resources/secret*
+*.playground/Resources/private*
