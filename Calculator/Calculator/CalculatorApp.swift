@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct CalculatorApp: App {
+    @StateObject var env = GlobalEnvironment()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(env) // ✅ injects it into the environment
         }
     }
 }
