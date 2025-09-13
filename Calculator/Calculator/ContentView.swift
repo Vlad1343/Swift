@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     let button = [
-        ["7", "8", "9", "X"],
+        ["7", "8", "9", "X"], // 2D Array
         ["4", "5", "6", "-"],
         ["1", "2", "3", "+"],
         ["0", ".", ".", "="]
@@ -33,14 +33,14 @@ struct ContentView: View {
 
                 
                 ForEach(button, id: \.self) { row in
-                    HStack {
-                        ForEach(row, id: \.self) { button in
+                    HStack (spacing: 12) {
+                        ForEach(row, id: \.self) { button in // loop
                             Text(button)
                             .font(.system(size: 32))
                             .frame(width: buttonWidth(), height: self.buttonWidth())
                                 .foregroundStyle(.white)
                                 .background(Color.yellow)
-                                .cornerRadius(40)
+                                .cornerRadius(self.buttonWidth())
 
                         }
                         
@@ -51,7 +51,7 @@ struct ContentView: View {
     }
     
     func buttonWidth() -> CGFloat {
-        80
+        return (UIScreen.main.bounds.width - 5*12) / 4 // give some space for 4 buttons per row, 5 spaces between buttons, 12 - spacing in HStack
     }
     
     
