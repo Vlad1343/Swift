@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let button = [
+        ["7", "8", "9", "X"],
+        ["7", "8", "9", "X"],
+        ["1", "2", "3", "X"],
+        ["0", ".", ".", "X"]
+    ]
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HStack {
+                ForEach(["7", "8", "9", "X"], id: \.self) { button in Text(button)
+                        .font(.system(size: 32))
+                        .frame(width: 80, height: 80)
+                    
+                }
+            }
         }
-        .padding()
     }
 }
 
