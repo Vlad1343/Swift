@@ -114,6 +114,10 @@ class GlobalEnvironment: ObservableObject {
             result *= currentNumber
         case .divide:
             result = currentNumber == 0 ? 0 : result / currentNumber
+            if currentNumber == 0 {
+                display = "Undefined"
+                return
+            }
         default:
             break
         }
@@ -151,6 +155,7 @@ class GlobalEnvironment: ObservableObject {
         }
     }
 }
+
 
 
 struct ContentView: View {
@@ -234,7 +239,7 @@ struct CalculatorView: View {
             }
     }
     
-    private func buttonWidth(button: CalculatorButton) -> CGFloat {
+    private func buttonWidth(button: CalculatorButton) -> CGFloat { //function returns a number representing a width (in points) that SwiftUI will use to size your button
         if button == .zero {
             return ((UIScreen.main.bounds.width - 4*12) / 4) * 2
         }
