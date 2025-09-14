@@ -57,8 +57,98 @@ enum CalculatorButton: String {
 class GlobalEnvironment: ObservableObject {
     @Published var display = "0"
     
+    private var currentNumber: Double = 0
+    private var previousNumber: Double?
+    private var currentOperation: CalculatorButton?
+    private var isTypingNumber = false
+    
     func receiveInput(calculatorButton: CalculatorButton) {
-        self.display = calculatorButton.title
+        switch calculatorButton {
+        case .zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .decimal:
+            handleNumberInput(calculatorButton)
+        case .plus, .minus, .multiply, .divide:
+            handleOperationInput(calculatorButton)
+        case .equals:
+            handleEquals()
+        case .ac:
+            clear()
+        case .plusMinus:
+            toggleSign()
+        case .percent:
+            applyPercent()
+        }
+    }
+    
+    private func handleNumberInput(_ button: CalculatorButton) {
+        let value = button.title
+        
+        if isTypingNumber {
+            if value == "." && display.contains(".") { return } // prevent multiple decimals
+            display += value
+        } else {
+            display = value == "." ? "0." : value
+            isTypingNumber = true
+        }
+        
+        currentNumber = Double(display) ?? 0
+    }
+    
+    private func handleOperationInput(_ operation: CalculatorButton) {
+        previousNumber = currentNumber
+        currentOperation = operation
+        isTypingNumber = false
+    }
+    
+    private func handleEquals() {
+        guard let operation = currentOperation, //safely unwrap optionals (like Double?) and make sure they are not nil before using them.
+              let previous = previousNumber else { return }
+        
+        var result: Double = previous
+        
+        switch operation {
+        case .plus:
+            result += currentNumber
+        case .minus:
+            result -= currentNumber
+        case .multiply:
+            result *= currentNumber
+        case .divide:
+            result = currentNumber == 0 ? 0 : result / currentNumber
+        default:
+            break
+        }
+        
+        display = formatResult(result)
+        currentNumber = result
+        previousNumber = nil
+        currentOperation = nil
+        isTypingNumber = false
+    }
+    
+    private func clear() {
+        display = "0"
+        currentNumber = 0
+        previousNumber = nil
+        currentOperation = nil
+        isTypingNumber = false
+    }
+    
+    private func toggleSign() {
+        currentNumber = -currentNumber
+        display = formatResult(currentNumber)
+    }
+    
+    private func applyPercent() {
+        currentNumber = currentNumber / 100
+        display = formatResult(currentNumber)
+    }
+    
+    private func formatResult(_ value: Double) -> String {
+        if value.truncatingRemainder(dividingBy: 1) == 0 {
+            return String(Int(value)) // remove ".0"
+        } else {
+            return String(value)
+        }
     }
 }
 
@@ -151,7 +241,6 @@ struct CalculatorView: View {
         return (UIScreen.main.bounds.width - 5*12) / 4 // give some space for 4 buttons per row, 5 spaces between buttons, 12 - spacing in HStack
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
